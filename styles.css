@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    background-color:rgb(255, 255, 255);
+}
+
+.adjust-container {
+    background-color:rgb(190, 190, 190);
+    width:400px;
+    height:450px;
+    color:rgb(0, 0, 0);
+    border-radius:10px;
+    position:fixed;
+    top:20px;
+    left:20px;
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
+    padding:20px;
+}
