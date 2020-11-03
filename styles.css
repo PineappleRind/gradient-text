@@ -3,10 +3,13 @@ body {
     background-color:rgb(255, 255, 255);
 }
 
+ul {
+    list-style: none;
+}
+
 .adjust-container {
     background-color:rgb(190, 190, 190);
     width:400px;
-    height:450px;
     color:rgb(0, 0, 0);
     border-radius:10px;
     position:fixed;
@@ -14,4 +17,29 @@ body {
     left:20px;
     box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
     padding:20px;
+}
+
+.gradient-stop {
+    width:80%;
+    border-radius:5px;
+    background-color:#eee;
+    padding:10px;
+    margin:10px;
+    margin-left:0;
+    border:#ddd 2px solid;
+    font-size:20px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.gradient-stop:hover {
+    background-color:rgb(232, 232, 232);
+    transform: scale(1.01)
+}
+
+.gradient-text {
+    position:absolute;
+    right:40px;
+    top:40px;
+    font-size:30px;
 }
