@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-family: Inter, sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+h2 {
+  font-family: Inter, sans-serif;
+  font-size: 29px;
+  font-weight: 500;
+}
+
+.adjust-container {
+  background-color: #bebebe;
+  width: 400px;
+  color: black;
+  border-radius: 10px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  -webkit-box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
+          box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
+  padding: 20px;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.gradient-stop {
+  width: 80%;
+  border-radius: 5px;
+  background-color: #eee;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 0;
+  border: #ddd 2px solid;
+  font-size: 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.gradient-stop:hover {
+  background-color: #e8e8e8;
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.gradient-text {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 30px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stop-modal {
+  position: fixed;
+  z-index: 5;
+  top: 20%;
+  bottom: 20%;
+  right: 30%;
+  left: 30%;
+  background-color: #f3f3f3;
+  border: 2px solid #ccc;
+  -webkit-box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.141);
+          box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.141);
+  border-radius: 20px;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  display: none;
+}
+
+#overlay {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  display: none;
+  position: fixed;
+  z-index: 4;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.685);
+}
+
+@-webkit-keyframes scale-in {
+  from {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes scale-out {
+  to {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes scale-out {
+  to {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */

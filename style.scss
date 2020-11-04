@@ -1,10 +1,35 @@
+$bgcolor: #fff;
+$darkwhite: #eee;
+$shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
+$fontfamily: Inter, sans-serif;
+
+@mixin text($size: 20px, $weight: 300) {
+    font-family: Inter, sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
 body {
     margin: 0;
-    background-color:rgb(255, 255, 255);
+    background-color:$bgcolor;
 }
 
 ul {
     list-style: none;
+}
+
+h1 {
+    @include text($size:38px, $weight: 500);
+}
+
+h2 {
+    @include text($size:29px, $weight: 500);
 }
 
 .adjust-container {
@@ -15,8 +40,9 @@ ul {
     position:fixed;
     top:20px;
     left:20px;
-    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
+    box-shadow: $shadow;
     padding:20px;
+    @include text($size:18px, $weight: 300);
 }
 
 .gradient-stop {
@@ -34,7 +60,7 @@ ul {
 
 .gradient-stop:hover {
     background-color:rgb(232, 232, 232);
-    transform: scale(1.01)
+    @include transform($property: scale(1.02));
 }
 
 .gradient-text {
@@ -43,6 +69,7 @@ ul {
     top:40px;
     font-size:30px;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
