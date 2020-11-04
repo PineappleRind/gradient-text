@@ -6,7 +6,7 @@
     <title>Gradient Text Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="body">
     <main>
         <div class="adjust-container">
             <h1>Text</h1>
@@ -15,13 +15,13 @@
             <h1>Gradient</h1>
             <div>
                 <p>Beginning</p>
-                <input type="color">
+                <input type="color" id="gradientBeginning">
                 <p>End</p>
-                <input type="color"><br><br>
+                <input type="color" id="gradientEnd"><br><br>
             </div>
             <h2>Stops</h2>
             <ul>
-                <li class="gradient-stop">0%</li>
+                <li onclick="editStop();" class="gradient-stop">0%</li>
                 <li class="gradient-stop">100%</li>
             </ul>
         </div>
@@ -29,6 +29,11 @@
         <div class="gradient-text">
             <h1 id="output">Text content</h1>
         </div>
+
+        <div class="stop-modal" id="stopModal">
+            <h1>Edit stop</h1>
+        </div>
+        <div id="overlay" onclick="editStop();"></div>
     </main>
     <script> </script>
     <script src="index.js"></script>

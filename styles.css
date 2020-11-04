@@ -42,4 +42,42 @@ ul {
     right:40px;
     top:40px;
     font-size:30px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stop-modal {
+    position:fixed;
+    z-index:5;
+    top:20%;
+    bottom:20%;
+    right:30%;
+    left:30%;
+    background-color:rgb(243, 243, 243);
+    border:2px solid #ccc;
+    box-shadow:0 0 40px 10px rgba(0, 0, 0, 0.141);
+    border-radius:20px;
+    animation-duration:1s;
+    display:none;
+}
+
+#overlay {
+    transition:0.5s;
+    opacity:0;
+    display:none;
+    position:fixed;
+    z-index:4;
+    bottom:0;
+    left:0;
+    top:0;
+    right:0;
+    background-color:rgba(0, 0, 0, 0.685)
+}
+
+@keyframes scale-in {
+    from {transform:scale(0.2); opacity:0;}
+}
+
+@keyframes scale-out {
+    to {transform:scale(0.2); opacity:0;}
 }
