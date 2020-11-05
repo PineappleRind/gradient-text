@@ -1,0 +1,25 @@
+$darkwhite: #eee;
+$darkerwhite: #ddd;
+
+$shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
+$fontfamily: Inter, sans-serif;
+
+@mixin text($size: 20px, $weight: 300) {
+    font-family: $fontfamily;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+@mixin overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

@@ -27,12 +27,12 @@ function editStop() {
         setTimeout(function() {
             stopModal.style.display = 'none';
             overlay.style.display = 'none';
-        },1000)
+        },800)
     }
 
     setTimeout(function() {
         stopModal.style.animationName = '';
-    },1000)
+    },800)
 }
 document.addEventListener("input", function(){
     textFunction();

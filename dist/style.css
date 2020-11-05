@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: white;
 }
 
 ul {
@@ -20,15 +20,14 @@ h2 {
 }
 
 .adjust-container {
-  background-color: #bebebe;
+  background-color: #ddd;
   width: 400px;
   color: black;
   border-radius: 10px;
   position: fixed;
   top: 20px;
   left: 20px;
-  -webkit-box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
-          box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
   padding: 20px;
   font-family: Inter, sans-serif;
   font-size: 18px;
@@ -42,17 +41,57 @@ h2 {
   padding: 10px;
   margin: 10px;
   margin-left: 0;
-  border: #ddd 2px solid;
   font-size: 20px;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
 }
+.gradient-stop .top {
+  min-width: 100px;
+  top: 50%;
+  left: 100%;
+  margin-left: 20px;
+  transform: translate(0, -50%);
+  padding: 3px 3px;
+  color: #e3e3e3;
+  background-color: #000000d6;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 9;
+  box-sizing: border-box;
+  display: none;
+  text-align: center;
+  animation-name: none;
+  animation-duration: 0.5s;
+}
+.gradient-stop .top i {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+.gradient-stop .top i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(50%, -50%) rotate(-45deg);
+  background-color: #000000d6;
+}
 
 .gradient-stop:hover {
-  background-color: #e8e8e8;
+  opacity: 0.8;
   -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
   transform: scale(1.02);
+}
+.gradient-stop:hover .top {
+  display: block;
+  animation-name: fade-in;
 }
 
 .gradient-text {
@@ -74,57 +113,43 @@ h2 {
   left: 30%;
   background-color: #f3f3f3;
   border: 2px solid #ccc;
-  -webkit-box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.141);
-          box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.141);
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
   border-radius: 20px;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 0.8s;
   display: none;
 }
 
 #overlay {
-  -webkit-transition: 0.5s;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   transition: 0.5s;
   opacity: 0;
   display: none;
-  position: fixed;
   z-index: 4;
-  bottom: 0;
-  left: 0;
-  top: 0;
-  right: 0;
   background-color: rgba(0, 0, 0, 0.685);
-}
-
-@-webkit-keyframes scale-in {
-  from {
-    -webkit-transform: scale(0.2);
-            transform: scale(0.2);
-    opacity: 0;
-  }
 }
 
 @keyframes scale-in {
   from {
     -webkit-transform: scale(0.2);
-            transform: scale(0.2);
+    -ms-transform: scale(0.2);
+    transform: scale(0.2);
     opacity: 0;
   }
 }
-
-@-webkit-keyframes scale-out {
-  to {
-    -webkit-transform: scale(0.2);
-            transform: scale(0.2);
-    opacity: 0;
-  }
-}
-
 @keyframes scale-out {
   to {
     -webkit-transform: scale(0.2);
-            transform: scale(0.2);
+    -ms-transform: scale(0.2);
+    transform: scale(0.2);
     opacity: 0;
   }
 }
-/*# sourceMappingURL=style.css.map */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}

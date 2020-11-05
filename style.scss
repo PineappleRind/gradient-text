@@ -1,23 +1,8 @@
-$bgcolor: #fff;
-$darkwhite: #eee;
-$shadow: 0 0 30px 10px rgba(0, 0, 0, 0.141);
-$fontfamily: Inter, sans-serif;
-
-@mixin text($size: 20px, $weight: 300) {
-    font-family: Inter, sans-serif;
-    font-size: $size;
-    font-weight: $weight;
-}
-
-@mixin transform($property) {
-    -webkit-transform: $property;
-    -ms-transform: $property;
-    transform: $property;
-}
+@import "variable-mixins";
 
 body {
     margin: 0;
-    background-color:$bgcolor;
+    background-color: white;
 }
 
 ul {
@@ -33,78 +18,130 @@ h2 {
 }
 
 .adjust-container {
-    background-color:rgb(190, 190, 190);
-    width:400px;
-    color:rgb(0, 0, 0);
-    border-radius:10px;
-    position:fixed;
-    top:20px;
-    left:20px;
+    background-color: $darkerwhite;
+    width: 400px;
+    color: black;
+    border-radius: 10px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
     box-shadow: $shadow;
-    padding:20px;
+    padding: 20px;
     @include text($size:18px, $weight: 300);
 }
 
 .gradient-stop {
-    width:80%;
-    border-radius:5px;
-    background-color:#eee;
-    padding:10px;
-    margin:10px;
-    margin-left:0;
-    border:#ddd 2px solid;
-    font-size:20px;
-    transition:0.3s;
-    cursor:pointer;
+    .top {
+        i {
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -12px;
+            width: 24px;
+            height: 12px;
+            overflow: hidden;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translate(50%, -50%) rotate(-45deg);
+                background-color: #000000d6;
+            }
+        }
+
+        min-width: 100px;
+        top:50%;
+        left:100%;
+        margin-left:20px;
+        transform:translate(0, -50%);
+        padding: 3px 3px;
+        color: #e3e3e3;
+        background-color: #000000d6;
+        font-weight: normal;
+        font-size: 13px;
+        border-radius: 8px;
+        position: absolute;
+        z-index: 9;
+        box-sizing: border-box;
+        display: none;
+        text-align:center;
+        animation-name: none;
+        animation-duration: 0.5s;
+    }
+
+    width: 80%;
+    border-radius: 5px;
+    background-color: $darkwhite;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 0;
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .gradient-stop:hover {
-    background-color:rgb(232, 232, 232);
+    opacity: 0.8;
     @include transform($property: scale(1.02));
+
+    .top {
+        display: block;
+        animation-name: fade-in;
+    }
 }
 
 .gradient-text {
-    position:absolute;
-    right:40px;
-    top:40px;
-    font-size:30px;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    font-size: 30px;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .stop-modal {
-    position:fixed;
-    z-index:5;
-    top:20%;
-    bottom:20%;
-    right:30%;
-    left:30%;
-    background-color:rgb(243, 243, 243);
-    border:2px solid #ccc;
-    box-shadow:0 0 40px 10px rgba(0, 0, 0, 0.141);
-    border-radius:20px;
-    animation-duration:1s;
-    display:none;
+    position: fixed;
+    z-index: 5;
+    top: 20%;
+    bottom: 20%;
+    right: 30%;
+    left: 30%;
+    background-color: rgb(243, 243, 243);
+    border: 2px solid #ccc;
+    box-shadow: $shadow;
+    border-radius: 20px;
+    animation-duration: 0.8s;
+    display: none;
 }
 
 #overlay {
-    transition:0.5s;
-    opacity:0;
-    display:none;
-    position:fixed;
-    z-index:4;
-    bottom:0;
-    left:0;
-    top:0;
-    right:0;
-    background-color:rgba(0, 0, 0, 0.685)
+    @include overlay;
+    transition: 0.5s;
+    opacity: 0;
+    display: none;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.685)
 }
 
 @keyframes scale-in {
-    from {transform:scale(0.2); opacity:0;}
+    from {
+        @include transform($property: scale(0.2));
+        opacity: 0;
+    }
 }
 
 @keyframes scale-out {
-    to {transform:scale(0.2); opacity:0;}
+    to {
+        @include transform($property: scale(0.2));
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
 }

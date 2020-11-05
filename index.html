@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gradient Text Generator</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;&display=swap" rel="stylesheet">
-    <style>
-    </style>
+    <link rel="stylesheet" href="dist/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;&display=swap" rel="stylesheet" />
+    <style></style>
 </head>
+
 <body id="body">
     <main>
         <div class="adjust-container">
             <h1>Text</h1>
-            <input type="text" placeholder="Type text here..." value="Text content" id="textContentInput">
-            <hr>
+            <input type="text" placeholder="Type text here..." value="Text content" id="textContentInput" />
+            <hr/>
             <h1>Gradient</h1>
             <div>
                 <p>Beginning</p>
-                <input type="color" id="gradientBeginning">
+                <input type="color" id="gradientBeginning" />
                 <p>End</p>
-                <input type="color" id="gradientEnd"><br><br>
+                <input type="color" id="gradientEnd" /><br/><br />
             </div>
             <h2>Stops</h2>
             <ul>
-                <li onclick="editStop();" class="gradient-stop">0%</li>
-                <li class="gradient-stop">100%</li>
+                <li onclick="editStop();" class="gradient-stop">
+                    0%
+                    <div class="top">
+                        <h3>Click to edit</h3>
+                        <i></i>
+                    </div>
+                </li>
+                <li onclick="editStop();" class="gradient-stop">100%
+                    <div class="top">
+                        <h3>Click to edit</h3>
+                        <i></i>
+                    </div>
+                </li>
             </ul>
         </div>
 
@@ -35,10 +47,16 @@
 
         <div class="stop-modal" id="stopModal">
             <h1>Edit stop</h1>
+            <p>Stop position</p>
+            <input id="stopPosition" type="range" />
+            <p id="stopPositionValue"></p>
+            <p>Stop color</p>
+            <input type="color" />
         </div>
         <div id="overlay" onclick="editStop();"></div>
     </main>
-    <script> </script>
+    <script></script>
     <script src="index.js"></script>
 </body>
+
 </html>
