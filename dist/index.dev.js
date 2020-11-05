@@ -8,7 +8,7 @@ function textFunction() {
   var inputText = document.getElementById('textContentInput');
   var inputBeginningColor = document.getElementById('gradientBeginning');
   var inputEndColor = document.getElementById('gradientEnd');
-  text.style.backgroundImage = 'linear-gradient(' + inputBeginningColor.value + ', ' + inputEndColor.value + ');';
+  text.style.backgroundImage = 'linear-gradient(to left,' + inputBeginningColor.value + ',' + inputEndColor.value + ');';
   text.innerHTML = inputText.value;
 }
 
