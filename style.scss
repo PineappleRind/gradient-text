@@ -1,8 +1,8 @@
-@import "variable-mixins";
+@import "variable-mixins"; 
 
 body {
     margin: 0;
-    background-color: white;
+    background-color: aliceblue;
 }
 
 ul {
@@ -41,7 +41,7 @@ h2 {
             height: 12px;
             overflow: hidden;
 
-            &::after {
+            i::after {
                 content: '';
                 position: absolute;
                 left: 0;
