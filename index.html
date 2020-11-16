@@ -23,14 +23,14 @@
             <h2>Stops</h2>
             <button onclick="addStopModalOpen()">Add stop</button>
             <ul id="xnum">
-                <li onclick="editStop();" id="gradientStop" class="gradient-stop">
-                    0
+                <li onclick="editStop(this);" id="addAfterThis" class="gradient-stop">
+                    0%
                     <div class="top">
                         <h3>Click to edit</h3>
                         <i></i>
                     </div>
                 </li>
-                <li onclick="editStop();" class="gradient-stop">100
+                <li onclick="editStop(this);" class="gradient-stop">100%
                     <div class="top">
                         <h3>Click to edit</h3>
                         <i></i>
@@ -50,6 +50,7 @@
             <p id="stopPositionValue"></p>
             <p>Stop color</p>
             <input type="color" />
+            <button onclick="removeStop(this)">Remove stop</button>
         </div>
 
         <div class="stop-modal" id="addStopModal">
@@ -58,7 +59,7 @@
             <input id="addStopPosition" type="range" />
             <p id="stopPositionValue">0%</p>
             <p>Stop color</p>
-            <input type="color"/>
+            <input type="color" />
             <button onclick="addStop()">Add</button>
         </div>
         <div id="overlay" onclick="closeModal();"></div>
