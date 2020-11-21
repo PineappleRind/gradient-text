@@ -16,9 +16,7 @@ function editStop(r) {
     overlay.style.opacity = '1';
     stopModal.style.animationName = "scale-in";
     stopModal.style.display = 'block';
-    setTimeout(function() {
-        stopModal.style.animationName = '';
-    }, 800);
+    setTimeout(function() {stopModal.style.animationName = '';}, 800);
     r.setAttribute("data-clicked", "true");
 }
 
