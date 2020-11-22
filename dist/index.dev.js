@@ -6,7 +6,6 @@ Reproduce with permission only */
 function textFunction() {
   var text = document.getElementById('output');
   var inputText = document.getElementById('textContentInput');
-  text.style.background = 'linear-gradient(' + firstStopData + ', ' + secondStopData + ')';
   text.innerHTML = inputText.value;
 }
 
@@ -41,7 +40,8 @@ function addStopModalOpen() {
 
 function addStop() {
   var stopPos = document.getElementById('addStopPosition');
-  document.getElementById("addAfterThis").insertAdjacentHTML('afterend', "<li onclick=\"editStop();\" id=\"gradientStop\" class=\"gradient-stop\">".concat(stopPos.value + '%', "<div class=\"top\"><h3>Click to edit</h3><i></i></div></li>"));
+  var y = document.getElementById("addAfterThis");
+  y.insertAdjacentHTML('afterend', "<li onclick=\"editStop();\" id=\"gradientStop\" class=\"gradient-stop\">".concat(stopPos.value + '%', "<div class=\"top\"><h3>Click to edit</h3><i></i></div></li>"));
   tinysort('ul#xnum>li', {
     natural: true
   });
@@ -49,15 +49,13 @@ function addStop() {
 
 function removeStop(r) {
   var t = document.querySelector("[clicked='true']");
-  removeElement(t);
+  t.style.animationName = 'scale-out';
+  setTimeout(function () {
+    t.remove();
+  }, 900);
 }
 
-function removeElement(elem) {
-  elem.style.animationName = 'scale-out';
-  setTimeout(function () {
-    elem.remove();
-  }, 1000);
-}
+function editStopModalUpdate() {}
 
 function closeModal() {
   overlay.style.opacity = '0';
