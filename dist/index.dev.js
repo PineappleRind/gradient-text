@@ -9,7 +9,7 @@ function textFunction() {
   text.innerHTML = inputText.value;
 }
 
-function editStop() {
+function editStop(r) {
   var stopModal = document.getElementById('stopModal');
   var overlay = document.getElementById('overlay');
   overlay.style.display = 'block';
@@ -19,6 +19,7 @@ function editStop() {
   setTimeout(function () {
     stopModal.style.animationName = '';
   }, 800);
+  r.setAttribute("data-clicked", "true");
 }
 
 function addStopModalOpen() {
@@ -39,11 +40,21 @@ function addStopModalOpen() {
 
 function addStop() {
   var stopPos = document.getElementById('addStopPosition');
-  document.getElementById("gradientStop").insertAdjacentHTML('afterend', "<li onclick=\"editStop();\" id=\"gradientStop\" class=\"gradient-stop\">".concat(stopPos.value, "<div class=\"top\"><h3>Click to edit</h3><i></i></div></li>"));
-  var list = document.getElementById('stopList');
+  document.getElementById("addAfterThis").insertAdjacentHTML('afterend', "<li onclick=\"editStop();\" id=\"gradientStop\" class=\"gradient-stop\">".concat(stopPos.value + '%', "<div class=\"top\"><h3>Click to edit</h3><i></i></div></li>"));
   tinysort('ul#xnum>li', {
     natural: true
   });
+}
+
+function removeStop(r) {
+  var stop = document.getElementsByClassName("gradient-stop");
+  var ul = document.getElementById('xnum');
+
+  for (var i = 0, len = ul.children.length; i < len; i++) {
+    ul.children[i].onclick = function () {
+      stop[i];
+    };
+  }
 }
 
 function closeModal() {
