@@ -6,6 +6,7 @@ Reproduce with permission only */
 function textFunction() {
   var text = document.getElementById('output');
   var inputText = document.getElementById('textContentInput');
+  text.style.background = 'linear-gradient(' + firstStopData + ', ' + secondStopData + ')';
   text.innerHTML = inputText.value;
 }
 
@@ -19,7 +20,7 @@ function editStop(r) {
   setTimeout(function () {
     stopModal.style.animationName = '';
   }, 800);
-  r.setAttribute("data-clicked", "true");
+  r.setAttribute("clicked", "true");
 }
 
 function addStopModalOpen() {
@@ -47,14 +48,15 @@ function addStop() {
 }
 
 function removeStop(r) {
-  var stop = document.getElementsByClassName("gradient-stop");
-  var ul = document.getElementById('xnum');
+  var t = document.querySelector("[clicked='true']");
+  removeElement(t);
+}
 
-  for (var i = 0, len = ul.children.length; i < len; i++) {
-    ul.children[i].onclick = function () {
-      stop[i];
-    };
-  }
+function removeElement(elem) {
+  elem.style.animationName = 'scale-out';
+  setTimeout(function () {
+    elem.remove();
+  }, 1000);
 }
 
 function closeModal() {

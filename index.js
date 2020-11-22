@@ -6,6 +6,8 @@ function textFunction() {
     let text = document.getElementById('output');
 
     let inputText = document.getElementById('textContentInput');
+
+    text.style.background = 'linear-gradient(' + firstStopData + ', ' + secondStopData + ')'
     text.innerHTML = inputText.value;
 }
 
@@ -17,7 +19,8 @@ function editStop(r) {
     stopModal.style.animationName = "scale-in";
     stopModal.style.display = 'block';
     setTimeout(function() {stopModal.style.animationName = '';}, 800);
-    r.setAttribute("data-clicked", "true");
+
+    r.setAttribute("clicked","true");
 }
 
 function addStopModalOpen() {
@@ -44,13 +47,15 @@ function addStop() {
 }
 
 function removeStop(r) {
-    const stop = document.getElementsByClassName("gradient-stop");
-    let ul = document.getElementById('xnum');
-    for (var i = 0, len = ul.children.length; i < len; i++) {
-        ul.children[i].onclick = function() {
-            stop[i]
-        }
-    }
+    let t = document.querySelector("[clicked='true']");
+    removeElement(t);
+}
+
+function removeElement(elem) {
+    elem.style.animationName = 'scale-out';
+    setTimeout(function(){
+        elem.remove();
+    }, 1000)
 }
 
 function closeModal() {
